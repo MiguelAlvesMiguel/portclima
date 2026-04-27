@@ -84,7 +84,7 @@ h3 {
 
 /* Thin, logo-like display titles */
 h1 {
-  font-size: clamp(3rem, 8vw, 6.7rem);
+  font-size: clamp(2.7rem, 7.2vw, 6.03rem);
   font-weight: 200;
   letter-spacing: 0.04em;
   line-height: 1.02;
@@ -92,7 +92,7 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(2.25rem, 5vw, 4.75rem);
+  font-size: clamp(2.025rem, 4.5vw, 4.275rem);
   font-weight: 200;
   letter-spacing: 0.035em;
   line-height: 1.05;
