@@ -1,99 +1,133 @@
 import { Link } from 'react-router-dom'
 import { AC_REPAIR_IMAGE } from '../data/content'
 
-const galleryImages = [
+const airConditioningServices = [
   {
-    src: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Técnico a instalar equipamento de ar condicionado',
+    title: 'Instalação nova',
+    text: 'Escolha do equipamento, localização das unidades, passagem de tubagens e arranque certificado.',
   },
   {
-    src: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Manutenção a sistema de climatização',
+    title: 'Manutenção preventiva',
+    text: 'Limpeza, verificação de filtros, condensados, apertos, consumo e rendimento antes da época de maior uso.',
   },
   {
-    src: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Sistema e tubagem em instalação técnica',
+    title: 'Reparação e avarias',
+    text: 'Diagnóstico de falhas, fugas, erros no comando, ruído anormal, baixa performance ou equipamento sem frio.',
   },
+  {
+    title: 'Multi-split e moradias',
+    text: 'Soluções para várias divisões com uma unidade exterior, pensadas para conforto e estética da fachada.',
+  },
+  {
+    title: 'Comércio e escritórios',
+    text: 'Intervenções planeadas para reduzir paragens e manter salas, lojas e gabinetes confortáveis.',
+  },
+  {
+    title: 'Eficiência energética',
+    text: 'Recomendações sobre potência, uso correto, manutenção e substituição quando o consumo já não compensa.',
+  },
+]
+
+const responseSteps = [
+  'Descreva o espaço e a urgência.',
+  'Recebe contacto técnico para validar detalhes.',
+  'Agendamos visita ou enviamos estimativa inicial.',
 ]
 
 export default function ProjectInstalacaoMultisplitPage() {
   return (
     <main className="project-detail">
-      <div className="project-detail__top">
-        <Link className="project-detail__back" to="/#portfolio">
-          ← Voltar ao portefólio
-        </Link>
-        <p className="eyebrow">Ar condicionado · Vila Nova de Gaia</p>
-        <h1>Instalação multi-split em moradia</h1>
-        <p className="project-detail__lead">
-          Projeto de climatização residencial com várias unidades interiores, dimensionamento de
-          tubagens e ponto único de condensação. Execução com foco em eficiência, ruído reduzido e
-          acessos técnicos claros para manutenção futura.
-        </p>
-        <div className="project-detail__ctas">
-          <a className="button primary" href="tel:+351914383288">
-            Ligar 914 383 288
-          </a>
-          <a className="button secondary" href="#pedido-orcamento">
-            Pedir orçamento para projeto semelhante
-          </a>
-        </div>
-      </div>
-
-      <figure className="project-detail__hero-figure">
-        <img
-          src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=80"
-          alt="Intervenção técnica em instalação de ar condicionado"
-        />
-      </figure>
-
-      <section className="section project-detail__section">
-        <h2>Desafio e solução</h2>
-        <div className="project-detail__columns">
-          <p>
-            A moradia necessitava de conforto térmico em divisões distintas, sem comprometer
-            fachadas e com caminho de tubos minimamente invasivo. Foi proposta arquitetura
-            multi-split, com análise de cargas e posicionamento das unidades exteriores para
-            otimizar distância e perdas de carga.
+      <section className="project-detail__hero">
+        <div className="project-detail__top">
+          <Link className="project-detail__back" to="/#portfolio">
+            ← Voltar aos trabalhos
+          </Link>
+          <p className="eyebrow">Ar condicionado · Instalação, manutenção e reparação</p>
+          <h1>Serviços de ar condicionado sem complicar.</h1>
+          <p className="project-detail__lead">
+            Apoio técnico para casas, lojas e escritórios: instalação nova, reparação de avarias,
+            manutenção preventiva e soluções multi-split quando precisa de climatizar várias zonas.
           </p>
-          <p>
-            Durante a execução foi garantida a estanqueidade do circuito frigorífico, ensaios de
-            vácuo e arranque com comissionamento, deixando ao cliente a documentação de apoio e
-            janela de manutenção preventiva anual.
-          </p>
+          <div className="project-detail__ctas">
+            <a className="button primary" href="tel:+351914383288">
+              Ligar 914 383 288
+            </a>
+            <a className="button secondary" href="#pedido-orcamento">
+              Pedir preço
+            </a>
+          </div>
         </div>
+        <aside className="project-detail__quick-card" aria-label="Resumo rápido">
+          <img src={AC_REPAIR_IMAGE} alt="Reparação de ar condicionado" />
+          <div>
+            <strong>Resposta rápida</strong>
+            <span>Instalação · Reparação · Manutenção</span>
+          </div>
+          <p>Envie fotos do equipamento e diga a localidade para acelerarmos o orçamento.</p>
+        </aside>
       </section>
 
-      <section className="section project-detail__gallery" aria-label="Galeria do projeto">
-        <h2>Em campanha</h2>
-        <div className="project-detail__grid">
-          {galleryImages.map((img) => (
-            <img key={img.src} src={img.src} alt={img.alt} loading="lazy" />
+      <section className="project-detail__compact-section">
+        <div className="project-detail__section-title">
+          <p className="eyebrow">O que fazemos</p>
+          <h2>Serviços mais pedidos</h2>
+        </div>
+        <div className="project-detail__service-grid">
+          {airConditioningServices.map((service) => (
+            <article key={service.title} className="project-detail__service-card">
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+            </article>
           ))}
-          <img src={AC_REPAIR_IMAGE} alt="Assistência a equipamento de ar condicionado" loading="lazy" />
         </div>
       </section>
 
-      <section className="section project-detail__section">
-        <h2>Resultado</h2>
-        <p>
-          Instalação concluída com divisões independentes, controlo de humidade e ruído contido. O
-          cliente fica com plano de manutenção sugerido e ponto de contacto único com a Portclima
-          para assistência e futuras extensões.
-        </p>
-        <ul className="project-detail__bullets">
-          <li>Dimensionamento e execução certificada</li>
-          <li>Comissionamento e teste de desempenho</li>
-          <li>Recomendações de manutenção preventiva</li>
-        </ul>
+      <section className="project-detail__band">
+        <div>
+          <p className="eyebrow">Como avançar</p>
+          <h2>Do pedido ao orçamento</h2>
+        </div>
+        <ol className="project-detail__steps">
+          {responseSteps.map((step, index) => (
+            <li key={step}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              {step}
+            </li>
+          ))}
+        </ol>
+        <a className="button primary" href="#pedido-orcamento">
+          Quero ser contactado
+        </a>
       </section>
 
-      <section id="pedido-orcamento" className="section project-detail__quote">
-        <h2>Orçamento para um projeto deste tipo</h2>
-        <p>
-          Indique a localidade, tipo de imóvel e a sua urgência. A equipa responde com vista a
-          agendar visita técnica ou orçamento por telefone.
-        </p>
+      <section className="project-detail__compact-section">
+        <div className="project-detail__section-title">
+          <p className="eyebrow">Quando chamar a Portclima</p>
+          <h2>Sinais de que o equipamento precisa de atenção</h2>
+        </div>
+        <div className="project-detail__checklist">
+          <span>Ar pouco frio ou pouco quente</span>
+          <span>Pingos, mau cheiro ou humidade</span>
+          <span>Ruído diferente do habitual</span>
+          <span>Consumo elétrico a subir</span>
+          <span>Filtros ou unidade interior sujos</span>
+          <span>Erro no comando ou no visor</span>
+        </div>
+      </section>
+
+      <section id="pedido-orcamento" className="project-detail__quote">
+        <div className="project-detail__quote-copy">
+          <p className="eyebrow">Pedido de preço</p>
+          <h2>Conte-nos o que precisa</h2>
+          <p>
+            Para resposta mais rápida, indique localidade, tipo de imóvel, marca/modelo se souber e
+            se procura instalação, manutenção ou reparação.
+          </p>
+        </div>
+        <div className="project-detail__quote-note">
+          <strong>Também pode ligar diretamente</strong>
+          <a href="tel:+351914383288">914 383 288</a>
+        </div>
         <form
           className="contact-form project-detail__form"
           name="orcamento-trabalho"
@@ -102,7 +136,7 @@ export default function ProjectInstalacaoMultisplitPage() {
           netlify-honeypot="bot-field"
         >
           <input type="hidden" name="form-name" value="orcamento-trabalho" />
-          <input type="hidden" name="projeto" value="Instalação multi-split Gaia" />
+          <input type="hidden" name="projeto" value="Serviços de ar condicionado" />
           <label className="honeypot" aria-hidden="true">
             Não preencher
             <input name="bot-field" tabIndex="-1" autoComplete="off" aria-hidden="true" />
@@ -128,22 +162,24 @@ export default function ProjectInstalacaoMultisplitPage() {
             <textarea
               name="mensagem"
               rows="4"
-              placeholder="Tipo de imóvel, n.º de divisões a climatizar, urgência…"
+              placeholder="Ex.: instalação numa sala, manutenção anual, equipamento sem frio..."
             ></textarea>
           </label>
           <button type="submit" className="button primary">
-            Enviar pedido de orçamento
+            Enviar pedido
           </button>
         </form>
       </section>
 
       <div className="project-detail__bottom-cta">
-        <p>Precisa de apoio urgente ou esclarecimentos técnicos?</p>
-        <a className="button primary" href="tel:+351914383288">
-          Ligar 914 383 288
-        </a>
+        <p>
+          Prefere voltar à página principal e ver todos os serviços?
+        </p>
         <Link className="button secondary" to="/#contactos">
-          Contacto geral
+          Ver contactos
+        </Link>
+        <Link className="button secondary" to="/#portfolio">
+          Ver outros trabalhos
         </Link>
       </div>
     </main>
