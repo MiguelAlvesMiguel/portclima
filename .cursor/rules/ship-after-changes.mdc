@@ -1,0 +1,16 @@
+---
+description: After substantive code or content changes, build, commit, push, and deploy Portclima to Netlify.
+alwaysApply: true
+---
+
+# Ship workflow (Portclima)
+
+After completing work that changes the site (not for trivial one-line typos unless the user asks):
+
+1. **Build**: `npm run build` — fix failures before shipping.
+2. **Git**: Stage, commit with a clear message, and **push** to `origin` on the current branch (usually `main`). If no remote exists yet, tell the user to add one and push; do not skip commit.
+3. **Netlify**: Deploy the production bundle with MCP `netlify-deploy-services-updater` → `deploy-site` using:
+   - `deployDirectory`: `D:\nexo\portclima\dist` (Windows) or the workspace `dist` folder
+   - `siteId`: `4130dce0-66dc-4067-9873-73edc7fc7f23` (existing Portclima site), unless the user specifies another.
+
+Do not deploy the project root without building; always deploy from `dist` after `npm run build`.
